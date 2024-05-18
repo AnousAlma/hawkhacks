@@ -97,17 +97,20 @@ export const Navbar = () => {
           />
         </Flex>
         <Center>
-          <Spacer width={"40px"}></Spacer>
+          <Spacer width={"30px"}></Spacer>
           <Text
               textTransform={'uppercase'}
               display="inline-block"
-              fontSize="20"
+              fontSize="2xl"
+              fontWeight="bold"
               bgGradient="linear(to-r, brand.200, brand.300)"
               backgroundClip="text"
               p={2}
               alignSelf={'flex-start'}
               rounded={'md'}
-              color={useColorModeValue('black', 'white')}
+              color={useColorModeValue('#00cc99', '#009999')}
+              onClick={() => {navigate("/home")}}
+              cursor={"pointer"}
               >
             HawkHacks
           </Text>
@@ -307,8 +310,5 @@ const MobileNavItem = ({ label, children, route }) => {
 
 
 const NAV_ITEMS_FOR_ANONYMOUS_USER = [
-  {
-    label: 'Home',
-    route: 'home'
-  },
+
 ]
