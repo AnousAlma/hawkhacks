@@ -4,5 +4,6 @@ import os
 import sys
 import json
 import matplotlib.pyplot as plt
+import cv2
 
-print("TensorFlow version: ", tf.__version__)
+model = tf.keras.models.load_model('model.h5')
