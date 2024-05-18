@@ -1,15 +1,14 @@
 import './App.css';
-import HomePage from './pages/HomePage';
-import { Navbar } from './pages/dashboard/Navbar';
-import { Login } from './pages/Login';
+import HomePage from './frontend/pages/HomePage';
+import { Login } from './frontend/pages/Login';
 import { ChakraProvider } from '@chakra-ui/react'
 import {
   BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom";
-import { Dashboard } from './pages/dashboard/Dashboard';
-import Profile from './pages/dashboard/Profile';
+import { Dashboard } from './frontend/pages/dashboard/Dashboard';
+import Profile from './frontend/pages/dashboard/Profile';
 
 function App() {
   return (

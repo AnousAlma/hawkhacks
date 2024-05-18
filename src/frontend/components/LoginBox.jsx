@@ -10,7 +10,7 @@ import {
     VisuallyHidden,
     useColorModeValue,
   } from '@chakra-ui/react'
-import { GoogleIcon } from './visuals/GoogleLogo' 
+import { GoogleIcon } from '../visuals/GoogleLogo' 
 
 export const LoginBox = (props) => {
     let logGoogleUser = props.logGoogleUser
