@@ -6,4 +6,3 @@ import json
 import matplotlib.pyplot as plt
 import cv2
 
-model = tf.keras.models.load_model('model.h5')
