@@ -39,7 +39,7 @@ while True:
             cv2.imwrite(img_name, frame)
             print(f"{img_name} saved")
             iteration_index += 1
-            time.sleep(0.5)  # Short delay to allow changing the hand sign
+            time.sleep(5)  # Short delay to allow changing the hand sign
         else:
             iteration_index = 0
             label_index += 1
