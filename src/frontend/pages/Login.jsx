@@ -1,23 +1,16 @@
 import { signInWithGooglePopup, is_logged_in } from "../firebase/firebase"
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
-// import './login.css'
-import { LoginBox } from '../components/LoginBox' 
-import { BrowserView, MobileView } from 'react-device-detect'
 import {
   Flex,
   Box,
-  FormControl,
-  FormLabel,
-  Input,
-  Checkbox,
   Stack,
-  Link,
   Button,
   Heading,
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { FcGoogle } from 'react-icons/fc'
 
 
   export const Login = () => {
@@ -51,39 +44,37 @@ import {
         minH={'100vh'}
         align={'center'}
         justify={'center'}
-        bg={useColorModeValue('#00cc99', '#009999')}>
+        backgroundImage={'url(https://img.freepik.com/free-vector/blue-speed-comic-style-background_23-2148820924.jpg)'}
+        backgroundRepeat={'no-repeat'}
+        backgroundSize={'cover'}
+        >
         <Box
             rounded={'lg'}
-            bg={useColorModeValue('white', 'gray.700')}
+            bg={useColorModeValue('white', 'white')}
             boxShadow={'lg'}
             height={'200%'}
             width={'60%'}
         >
           <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
               <Stack align={'center'}>
-                <Heading fontSize={'4xl'}>Sign in using google</Heading>
+                <Heading fontSize={'4xl'} color="black">Sign in using google</Heading>
                 <Text fontSize={'lg'} color={'gray.600'}>
                   Start learning!
                 </Text>
               </Stack>
-              <Box
-                rounded={'lg'}
-                bg={useColorModeValue('#00cc99', '#009999')}
-                boxShadow={'lg'}
-                p={1}>
                 <Stack spacing={4}>
                     <Button
-                      bg={useColorModeValue('#00cc99', '#009999')}
-                      color={'white'}
+                      bg={useColorModeValue('#adebeb', '#99e6e6')}
+                      color={'black'}
                       _hover={{
-                        bg: 'gray.100',
+                        bg: useColorModeValue('#85e0e0', '#70dbdb'),
                       }}
                       onClick={logGoogleUser}
+                      leftIcon={<FcGoogle />}
                       >
-                      Sign in
+                      Sign in with Google
                     </Button>
                 </Stack>
-              </Box>
           </Stack>
         </Box>
       </Flex>

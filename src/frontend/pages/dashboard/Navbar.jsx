@@ -112,7 +112,7 @@ export const Navbar = () => {
               onClick={() => {navigate("/home")}}
               cursor={"pointer"}
               >
-            HawkHacks
+            SignWave
           </Text>
         </Center>
         <Flex
@@ -155,7 +155,7 @@ export const Navbar = () => {
                   </Center>
                   <br />
                   <MenuDivider />
-                  <MenuItem onClick={()=>{profileRedirect()}}>Account Settings</MenuItem>
+                  <MenuItem onClick={()=>{profileRedirect()}}>Account Stats</MenuItem>
                   <MenuItem onClick={()=>{sign_out(); logInRedirect()}}>Logout</MenuItem>
                 </MenuList>
               </Menu>
@@ -310,5 +310,8 @@ const MobileNavItem = ({ label, children, route }) => {
 
 
 const NAV_ITEMS_FOR_ANONYMOUS_USER = [
-
+  {
+    label: 'Play',
+    route: '/play',
+  }
 ]
