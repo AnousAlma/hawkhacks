@@ -6,7 +6,7 @@ import numpy as np
 
 os.makedirs('dataset/A', exist_ok=True)
 
-cam = cv2.VideoCapture(0)
+cam = cv2.VideoCapture(1)
 
 img_labels = [
     "hello", "thanks", "no", "yes", "iloveyou"
