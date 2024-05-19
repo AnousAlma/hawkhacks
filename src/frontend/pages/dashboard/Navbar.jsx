@@ -112,7 +112,7 @@ export const Navbar = () => {
               onClick={() => {navigate("/home")}}
               cursor={"pointer"}
               >
-            SignLingo
+            SignWave
           </Text>
         </Center>
         <Flex
@@ -155,7 +155,7 @@ export const Navbar = () => {
                   </Center>
                   <br />
                   <MenuDivider />
-                  <MenuItem onClick={()=>{profileRedirect()}}>Account Settings</MenuItem>
+                  <MenuItem onClick={()=>{profileRedirect()}}>Account Stats</MenuItem>
                   <MenuItem onClick={()=>{sign_out(); logInRedirect()}}>Logout</MenuItem>
                 </MenuList>
               </Menu>

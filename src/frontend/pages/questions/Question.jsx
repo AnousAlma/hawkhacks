@@ -23,7 +23,7 @@ export default function Question() {
 
   const Card = ({ heading, selected, correct }) => {
     let color = NaN;
-    if (selected === heading) {
+    if (selected) {
       if (correct === 1) {
         color = 'green.500';
       }
@@ -60,9 +60,17 @@ export default function Question() {
   const [selected, setSelected] = useState(null);
   const [correct, setCorrect] = useState(0); // 0 = not answered, 1 = correct, -1 = incorrect
   const [userScore, setUserScore] = useState(0);
+  const [userAttempts, setUserAttempts] = useState(0);
 
   function handleClick(e) {
     setSelected(e.target.innerText);
+  }
+
+  function nextQuestion() {
+    setUserAttempts((prevAttempts) => prevAttempts + 1);
+    const docRef = doc(db, "users", auth.currentUser.uid);
+    setDoc(docRef, {attempted: userAttempts + 1}, {merge: true});
+    navigate('/play');
   }
 
 
@@ -71,13 +79,14 @@ export default function Question() {
     getDoc(docRef).then((docSnap) => {
       if (docSnap.exists()) {
         setUserScore(docSnap.data().score);
+        setUserAttempts(docSnap.data().attempted);
       }
     });
   })
 
   function checkAnswer() {
     if (selected === null) {
-      return;
+      setCorrect(0);
     }
     else if (selected === correctAnswer) {
       setCorrect(1);
@@ -108,7 +117,7 @@ export default function Question() {
 
   useEffect(() => {
     setAnswersHTML( shuffled_answers.map((answer) => {
-      if (answer === selected && correct === 0) {
+      if (answer === selected) {
         return <Card heading={answer} selected={true} correct={correct}/>
       }
       return <Card heading={answer} selected={false} correct={correct}/>
@@ -164,7 +173,7 @@ export default function Question() {
               bg: 'blue.700',
             }}
             marginTop = "4vh"
-            onClick={() => navigate('/play')}
+            onClick={nextQuestion}
           >
             Continue
           </Button>

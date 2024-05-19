@@ -36,7 +36,8 @@ export default function HomePage() {
           name: auth.currentUser.displayName,
           email: auth.currentUser.email,
           photoURL: auth.currentUser.photoURL,
-          score: 0
+          score: 0,
+          attempted: 0,
         });
       }
     });

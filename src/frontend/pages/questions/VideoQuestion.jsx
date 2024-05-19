@@ -2,6 +2,7 @@
 
 import {
   Box,
+  Button,
   Container,
   Flex,
   Heading,
@@ -10,11 +11,16 @@ import {
 } from '@chakra-ui/react'
 import Webcam from 'react-webcam'
 import { useMediaQuery } from 'react-responsive'
+import { useState, useEffect } from 'react'
+import { auth } from '../../firebase/firebase';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { db } from '../../firebase/firebase';
+import { useNavigate } from 'react-router-dom';
 
 const Card = ({ heading }) => {
     return (
         <Box
-        maxW={{ base: 'full', md: '15vw' }}
+        maxW={{ base: 'full', md: '12vw' }}
         w={'full'}
         borderWidth="1px"
         borderColor={useColorModeValue('black', 'white')}
@@ -31,6 +37,27 @@ const Card = ({ heading }) => {
     export default function VideoQuestion() {
 
     const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
+    const [userAttempts, setUserAttempts] = useState(0);
+    const [userScore, setUserScore] = useState(0);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const docRef = doc(db, "users", auth.currentUser.uid);
+        getDoc(docRef).then((docSnap) => {
+          if (docSnap.exists()) {
+            setUserScore(docSnap.data().score);
+            setUserAttempts(docSnap.data().attempted);
+          }
+        });
+      })
+
+      function nextQuestion() {
+        setUserAttempts((prevAttempts) => prevAttempts + 1);
+        const docRef = doc(db, "users", auth.currentUser.uid);
+        setDoc(docRef, {attempted: userAttempts + 1}, {merge: true});
+        navigate('/play');
+      }
+
 
     return (
         <Box p={4}>
@@ -92,6 +119,17 @@ const Card = ({ heading }) => {
             <Card
                 heading={'Heading'}
             />
+            <Button 
+                bg='blue.500'
+                color='white'
+                _hover={{
+                bg: 'blue.700',
+                }}
+                marginTop = "4vh"
+                onClick={nextQuestion}
+            >
+                Skip
+            </Button>
             </Flex>
         </Container>
         </Box>

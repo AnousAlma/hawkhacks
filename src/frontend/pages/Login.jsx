@@ -44,7 +44,10 @@ import { FcGoogle } from 'react-icons/fc'
         minH={'100vh'}
         align={'center'}
         justify={'center'}
-        bg={useColorModeValue('#00cc99', '#009999')}>
+        backgroundImage={'url(https://img.freepik.com/free-vector/blue-speed-comic-style-background_23-2148820924.jpg)'}
+        backgroundRepeat={'no-repeat'}
+        backgroundSize={'cover'}
+        >
         <Box
             rounded={'lg'}
             bg={useColorModeValue('white', 'white')}
