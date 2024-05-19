@@ -8,13 +8,12 @@ import { getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyD7xKPO9w1Sb2-oSqAFmU5Xvf_KeufkpAw",
-  authDomain: "qr-inventory-management-sys.firebaseapp.com",
-  projectId: "qr-inventory-management-sys",
-  storageBucket: "qr-inventory-management-sys.appspot.com",
-  messagingSenderId: "980726773573",
-  appId: "1:980726773573:web:7c653f9d34b5b031c1702c",
-  measurementId: "G-SRC7PYWEJG"
+  apiKey: "AIzaSyCF5BzvXuk-nfTw2elGHEKNjmrHUGilfd4",
+  authDomain: "hawkhacks-d179f.firebaseapp.com",
+  projectId: "hawkhacks-d179f",
+  storageBucket: "hawkhacks-d179f.appspot.com",
+  messagingSenderId: "391767740395",
+  appId: "1:391767740395:web:ba3938b7da170e8f0113ae"
 };
 
 // Initialize Firebase
@@ -42,6 +41,15 @@ export const get_user = async () => {
   }
   return false
 }
+
+export const get_user_id = async () => {
+  const user = auth.currentUser
+  if (user) {
+    return user.uid
+  }
+  return false
+}
+
 
 export const is_logged_in = async () => {
   return new Promise((resolve) => {

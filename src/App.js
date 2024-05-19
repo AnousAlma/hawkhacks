@@ -9,6 +9,9 @@ import {
 } from "react-router-dom";
 import { Dashboard } from './frontend/pages/dashboard/Dashboard';
 import Profile from './frontend/pages/dashboard/Profile';
+import Question from './frontend/pages/questions/Question';
+import VideoQuestion from './frontend/pages/questions/VideoQuestion';
+import Play from './frontend/pages/questions/Play';
 
 function App() {
   return (
@@ -19,6 +22,9 @@ function App() {
             <Route path="/" element={<Dashboard/>}>
               <Route path="/home" element={<HomePage/>}/>
               <Route path="/profile" element={<Profile />}/>
+              <Route path="/question" element={<Question />}/>
+              <Route path="/vid_question" element={<VideoQuestion />}/>
+              <Route path="/play" element={<Play />}/>
             </Route>
 
             <Route path="/login" element={<Login/>}/>

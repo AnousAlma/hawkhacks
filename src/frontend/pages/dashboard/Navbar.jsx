@@ -112,7 +112,7 @@ export const Navbar = () => {
               onClick={() => {navigate("/home")}}
               cursor={"pointer"}
               >
-            HawkHacks
+            SignLingo
           </Text>
         </Center>
         <Flex
@@ -310,5 +310,8 @@ const MobileNavItem = ({ label, children, route }) => {
 
 
 const NAV_ITEMS_FOR_ANONYMOUS_USER = [
-
+  {
+    label: 'Play',
+    route: '/play',
+  }
 ]
