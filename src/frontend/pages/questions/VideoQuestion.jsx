@@ -38,14 +38,14 @@ const Card = ({ heading }) => {
 
     const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
     const [userAttempts, setUserAttempts] = useState(0);
-    const [userScore, setUserScore] = useState(0);
+    // const [userScore, setUserScore] = useState(0);
     const navigate = useNavigate();
 
     useEffect(() => {
         const docRef = doc(db, "users", auth.currentUser.uid);
         getDoc(docRef).then((docSnap) => {
           if (docSnap.exists()) {
-            setUserScore(docSnap.data().score);
+            // setUserScore(docSnap.data().score);
             setUserAttempts(docSnap.data().attempted);
           }
         });

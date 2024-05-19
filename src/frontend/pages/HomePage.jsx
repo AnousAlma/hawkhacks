@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { db } from '../firebase/firebase';
 import { auth } from '../firebase/firebase';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 
@@ -20,7 +20,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function HomePage() {
 
-  const [userData, setUserData] = useState({});
+  // const [userData, setUserData] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function HomePage() {
     const docRef = doc(db, "users", auth.currentUser.uid);
     getDoc(docRef).then((docSnap) => {
       if (docSnap.exists()) {
-        setUserData(docSnap.data());
+        // setUserData(docSnap.data());
       } else {
         setDoc(doc(db, "users", auth.currentUser.uid), {
           name: auth.currentUser.displayName,

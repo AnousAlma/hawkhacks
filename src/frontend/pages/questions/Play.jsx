@@ -14,6 +14,7 @@ const Play = () => {
 
     useEffect(() => {
         navigate(list[random() - 1])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return (
         <div>Play</div>

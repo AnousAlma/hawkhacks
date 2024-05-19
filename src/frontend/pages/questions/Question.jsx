@@ -113,6 +113,7 @@ export default function Question() {
   const answers = ['Answer 1', 'Answer 2', 'Answer 3', 'Answer 4'];
   let [answersHTML, setAnswersHTML] = useState([]);
   let [shuffled_answers, setShuffledAnswers] = useState([]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {  setShuffledAnswers(shuffle(answers));}, [])
 
   useEffect(() => {
