@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>yes_0.png</filename>
+	<path>/Users/mohammadalwattar/RealTimeObjectDetection/Tensorflow/workspace/images/images/yes_0.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1920</width>
+		<height>1080</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>yes</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>411</xmin>
+			<ymin>664</ymin>
+			<xmax>975</xmax>
+			<ymax>1080</ymax>
+		</bndbox>
+	</object>
+</annotation>
