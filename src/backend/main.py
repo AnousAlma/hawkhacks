@@ -1,6 +1,8 @@
 import cv2
 import os
 import time
+import tensorflow as tf
+import numpy as np
 
 os.makedirs('dataset/A', exist_ok=True)
 
@@ -50,3 +52,6 @@ while True:
 
 cam.release()
 cv2.destroyAllWindows()
+
+# model = tf.keras.models.load_model('object_detection_model.h5')
+
