@@ -28,8 +28,16 @@ def xml_to_csv(path):
 
 def class_text_to_int(row_label):
     # Modify this function to match your class names
-    if row_label == 'class_name':
+    if row_label == 'hello':
         return 1
+    elif row_label == 'i love you':
+        return 2
+    elif row_label == 'no':
+        return 3
+    elif row_label == 'thank you':
+        return 5
+    elif row_label == 'yes':
+        return 6
     else:
         return None
 
