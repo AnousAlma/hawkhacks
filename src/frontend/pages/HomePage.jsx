@@ -9,6 +9,7 @@ import {
   Image,
   Icon,
   useColorModeValue,
+  Link,
 } from '@chakra-ui/react';
 import { db } from '../firebase/firebase';
 import { auth } from '../firebase/firebase';
@@ -82,7 +83,11 @@ export default function HomePage() {
             </Text>
           </Heading>
           <Text color={'gray.500'}>
-            Continue learning American Sign Language with us while having fun!
+            Continue learning American Sign Language with us while having fun! Watch this 
+            <Link href="https://www.youtube.com/watch?v=Y6GOZu0qWaM" 
+              color={useColorModeValue('#00cc99', '#009999')}
+              > video </Link> 
+            and try our tests!
           </Text>
           <Stack
             spacing={{ base: 4, sm: 6 }}

@@ -35,7 +35,8 @@ const Card = ({ heading }) => {
     }
 
     export default function VideoQuestion() {
-
+    const allAnswers = ['Good', 'Bad', 'Hungry', 'Thirsty', 'Mine', 'Your', 'Where', 'Who', 'How', 'Why']
+    const prompt = allAnswers[Math.floor(Math.random() * allAnswers.length | 0)];
     const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
     const [userAttempts, setUserAttempts] = useState(0);
     // const [userScore, setUserScore] = useState(0);
@@ -63,7 +64,7 @@ const Card = ({ heading }) => {
         <Box p={4}>
         <Stack spacing={4} as={Container} maxW={'3xl'} textAlign={'center'}>
             <Heading fontSize={{ base: '2xl', sm: '4xl' }} fontWeight={'bold'}>
-            How do you sign this?
+            Try signing the word yourself!
             </Heading>
         </Stack>
 
@@ -117,7 +118,7 @@ const Card = ({ heading }) => {
         <Container maxW={'5xl'} mt={12}>
             <Flex flexWrap="wrap" gridGap={6} justify="center">
             <Card
-                heading={'Heading'}
+                heading={prompt}
             />
             <Button 
                 bg='blue.500'
@@ -128,7 +129,7 @@ const Card = ({ heading }) => {
                 marginTop = "4vh"
                 onClick={nextQuestion}
             >
-                Skip
+                Next Question
             </Button>
             </Flex>
         </Container>

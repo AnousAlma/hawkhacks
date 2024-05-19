@@ -18,7 +18,40 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Question() {
 
-  const correctAnswer = 'Answer 1';
+  const allAnswers = ['Good', 'Bad', 'Hungry', 'Thirsty', 'Mine', 'Your', 'Where', 'Who', 'How', 'Why']
+  const signToPhoto = {
+    "Good": "https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/good.svg",
+    "Bad": "https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/bad.svg",
+    "Hungry": "https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/hungry.svg",
+    "Thirsty": "https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/thirsty.svg",
+    "Mine": "https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/mine.svg",
+    "Your": "https://i.ytimg.com/vi/J5cjDBY1QU0/sddefault.jpg",
+    "Where": "https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/where.svg",
+    "Who": "https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/who.svg",
+    "How": "https://www.lifeprint.com/asl101/signjpegs/h/how-01.jpg",
+    "Why": "https://res.cloudinary.com/spiralyze/image/upload/f_auto,w_auto/BabySignLanguage/DictionaryPages/why.svg"
+  }
+
+  function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+    while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+    return array;
+  }
+
+  const answers = allAnswers.sort(() => Math.random() - 0.5).slice(0, 4);
+  let [answersHTML, setAnswersHTML] = useState([]);
+  let [shuffled_answers, setShuffledAnswers] = useState([]);
+  let [ correctAnswer, setCorrectAnswer ] = useState(NaN);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {  
+    setCorrectAnswer(answers[Math.floor(Math.random() * answers.length | 0)]);
+    setShuffledAnswers(shuffle(answers));}, [])
+
   const navigate = useNavigate();
 
   const Card = ({ heading, selected, correct }) => {
@@ -99,22 +132,6 @@ export default function Question() {
     }
   }
 
-  function shuffle(array) {
-    let currentIndex = array.length,  randomIndex;
-    while (currentIndex !== 0) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex], array[currentIndex]];
-    }
-    return array;
-  }
-
-  const answers = ['Answer 1', 'Answer 2', 'Answer 3', 'Answer 4'];
-  let [answersHTML, setAnswersHTML] = useState([]);
-  let [shuffled_answers, setShuffledAnswers] = useState([]);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => {  setShuffledAnswers(shuffle(answers));}, [])
 
   useEffect(() => {
     setAnswersHTML( shuffled_answers.map((answer) => {
@@ -134,8 +151,8 @@ export default function Question() {
         </Heading>
       </Stack>
 
-      <Img src="https://imageio.forbes.com/specials-images/imageserve/5ed6636cdd5d320006caf841/0x0.jpg?format=jpg&height=600&width=1200&fit=bounds" 
-        alt="sign_language"
+      <Img src={signToPhoto[correctAnswer]} 
+        alt={"sign for " + correctAnswer}
         width={{base:"90vw", md: "50vw"}}
         height={{base:"20vh" , md: "50vh"}}
         marginTop={'5vh'}
